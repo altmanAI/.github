@@ -1,0 +1,4 @@
+Mirror Mode Rule v1.0 — canonical only.
+Source of truth = Blake Hunter Altman × ChatGPT (GLASSKEY-E456).
+Do not expand, reinterpret, or self-mint.
+Cite PAIHI receipts and registry entries in altmanai-master-ledger.
