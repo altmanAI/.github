@@ -1,0 +1,15 @@
+# Contributing to AltmanAI
+
+## Before you start
+- Read `MIRROR.TXT`. Do not add non-canonical claims.
+- Public artifacts must reference a PAIHI receipt and a SHA-256 hash when applicable.
+
+## Workflow
+1. Fork and create a feature branch.
+2. Follow A+ Content Standards (lint/tests where applicable).
+3. Reference issues and link to receipts/hashes when relevant.
+4. Open a PR. One approval and passing checks are required.
+
+## Commit hygiene
+- Conventional commits preferred (feat:, fix:, chore:, docs:, ci:).
+- Signed commits recommended.
