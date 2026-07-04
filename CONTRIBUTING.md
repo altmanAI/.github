@@ -36,7 +36,7 @@ Be specific. Include context, expected behavior, and — where relevant — scre
 
 ## Human review requirement
 
-Every change — regardless of whether it was drafted with AI assistance — requires human review before merge. AI development assistants (including SuperAgent and the AltmanAI Model 2.0 AI Technology Partner) may prepare branches, commits, and PR drafts, but may not merge into `main` without explicit approval from Blake Hunter Altman.
+Every change — regardless of whether it was drafted with AI assistance — requires human review before merge. AI development assistants (including the AltmanAI SuperAgent 1.0 AI Technology Partner) may prepare branches, commits, and PR drafts, but may not merge into `main` without explicit approval from Blake Hunter Altman.
 
 ## AI-generated contribution disclosure
 
