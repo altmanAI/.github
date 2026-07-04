@@ -1,6 +1,0 @@
-Project Governance
-– BDFL: Blake Hunter Altman
-– AI Partner: AltmanAI SuperAgent 1.0 — advisory and drafting support
-– Source of truth: upstream Blake × AltmanAI SuperAgent 1.0 channel; all downstream repos mirror artifacts.
-
-Decisions are proposed via issues and finalized with entries in the Master Ledger (Registry IDs).
