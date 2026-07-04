@@ -28,7 +28,7 @@
 
 ## AI-assisted work
 
-<!-- Was this PR drafted or substantially assisted by an AI tool? If so, name it (e.g. AltmanAI Model 2.0) and note what it did. If none, say "None." -->
+<!-- Was this PR drafted or substantially assisted by an AI tool? If so, name it (e.g. AltmanAI SuperAgent 1.0) and note what it did. If none, say "None." -->
 
 ## Checklist
 
