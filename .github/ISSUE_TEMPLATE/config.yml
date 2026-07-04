@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Product Support
+    url: https://www.altmanai.tech
+    about: For product questions about DailyPilot, Sentinel Elite, or other AltmanAI products.
+  - name: Security or Code of Conduct concern
+    url: mailto:security@altmanai.tech
+    about: For anything sensitive — do not open a public issue for security reports.
