@@ -1,0 +1,16 @@
+# Draft workflow — manual trigger only. Not enabled on push/PR automatically.
+# Review and change the trigger to a schedule or `pull_request` once approved for automatic use.
+name: Link Check (manual)
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  link-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check for broken links in Markdown
+        uses: lycheeverse/lychee-action@v1
+        with:
+          args: --no-progress '**/*.md'
