@@ -17,7 +17,7 @@ AltmanAI builds human-first AI systems designed to support clearer thinking, str
 ## Governance model
 
 - **BDFL (Benevolent Dictator for Life):** Blake Hunter Altman — Founder & Chief Executive Officer, AltmanAI by Altman Family Group LLC.
-- **Official AI Technology Partner:** AltmanAI Model 2.0 — for advisory, drafting, research, development support, documentation architecture, governance preparation, and human-first AI system refinement.
+- **Official AI Technology Partner:** AltmanAI SuperAgent 1.0 — for advisory, drafting, research, development support, documentation architecture, governance preparation, and human-first AI system refinement.
 - **Source of truth:** Blake Hunter Altman, as final decision-maker over all official AltmanAI records, documentation, and product direction.
 - **Downstream repositories:** mirror approved artifacts, documents, workflows, and product logic from this organization-level repository.
 - **Decision process:** Proposals are documented through GitHub issues, reviewed by maintainers, and finalized through official approval entries.
