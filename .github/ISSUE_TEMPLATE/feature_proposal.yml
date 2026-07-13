@@ -1,0 +1,101 @@
+name: Feature or improvement proposal
+description: Propose a focused, evidence-grounded improvement to an AltmanAI repository or product surface.
+title: "[Proposal]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Start with the human or operational problem, not the size of the feature. Proposed work is not approved or scheduled until it passes the applicable review process.
+  - type: input
+    id: repository_component
+    attributes:
+      label: Repository or component
+      description: Where would this improvement belong?
+      placeholder: e.g. altmanai-sdk, DailyPilot-Engine, organization governance
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem to solve
+      description: What real user, developer, research, governance, or operational problem exists?
+    validations:
+      required: true
+  - type: textarea
+    id: affected
+    attributes:
+      label: Who is affected and what evidence exists?
+      description: Identify the people, workflows, or systems affected and provide examples, observations, links, data, or other evidence.
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Smallest useful outcome
+      description: Define the minimum credible result. Avoid bundling unrelated work.
+    validations:
+      required: true
+  - type: textarea
+    id: approach
+    attributes:
+      label: Proposed approach
+      description: Describe an implementation direction, alternatives considered, and why this approach may be appropriate.
+  - type: textarea
+    id: non_goals
+    attributes:
+      label: Non-goals
+      description: What should explicitly remain outside this proposal?
+  - type: textarea
+    id: risks
+    attributes:
+      label: Security, privacy, accessibility, and human-impact considerations
+      description: Identify material risks, affected data or permissions, possible misuse, dependency concerns, and how human control or recourse is preserved.
+    validations:
+      required: true
+  - type: textarea
+    id: validation
+    attributes:
+      label: Validation plan
+      description: How would reviewers determine whether the change works and creates useful impact?
+    validations:
+      required: true
+  - type: dropdown
+    id: status
+    attributes:
+      label: Current maturity
+      description: What is the current state of this idea?
+      options:
+        - Problem observation only
+        - Early concept
+        - Prototype exists
+        - Evidence or tests exist
+        - Existing implementation needs improvement
+    validations:
+      required: true
+  - type: dropdown
+    id: ai_assistance
+    attributes:
+      label: AI assistance
+      description: Did an AI system materially assist this proposal?
+      options:
+        - No material AI assistance
+        - AltmanAI Model 2.0
+        - Another AI system
+    validations:
+      required: true
+  - type: textarea
+    id: ai_details
+    attributes:
+      label: AI assistance details
+      description: If applicable, name the system, describe its contribution, and identify what you verified.
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Confirmation
+      options:
+        - label: I searched existing issues, pull requests, and documentation for related work.
+          required: true
+        - label: I have not included secrets, private data, confidential information, or unsupported company claims.
+          required: true
+        - label: I understand that opening this proposal does not approve, schedule, fund, or authorize the work.
+          required: true
