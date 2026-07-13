@@ -1,0 +1,116 @@
+name: Research or governance proposal
+description: Propose a bounded research question, policy change, evaluation, standard, or accountability record.
+title: "[Research/Governance]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form for research, evaluation, policy, governance, safety, documentation-standard, or Proof-of-Impact proposals. Governance-critical changes require a dedicated pull request and explicit accountable-human approval before merge.
+  - type: dropdown
+    id: proposal_type
+    attributes:
+      label: Proposal type
+      options:
+        - Research question
+        - Evaluation or benchmark
+        - Governance or policy change
+        - Security or privacy standard
+        - AI-system control or autonomy boundary
+        - Proof-of-Impact or Master Ledger record
+        - Documentation or public-claim correction
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: question
+    attributes:
+      label: Question or decision requested
+      description: State the exact question to answer or decision to make.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Context and existing evidence
+      description: Link relevant code, documents, sources, incidents, decisions, tests, or prior proposals.
+    validations:
+      required: true
+  - type: textarea
+    id: method
+    attributes:
+      label: Method and evidence standard
+      description: Explain how the work should be conducted and what evidence would support or reject the conclusion.
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope and non-goals
+      description: Identify affected repositories, systems, policies, users, and explicit exclusions.
+    validations:
+      required: true
+  - type: textarea
+    id: risks
+    attributes:
+      label: Risks, limitations, conflicts, and unknowns
+      description: Include security, privacy, legal, licensing, accessibility, social, operational, human-impact, or incentive concerns.
+    validations:
+      required: true
+  - type: textarea
+    id: paihi
+    attributes:
+      label: P.A.I.H.I. review
+      description: Address Proof, Alignment, Integrity, Humanity, and Impact.
+      placeholder: |
+        Proof:
+        Alignment:
+        Integrity:
+        Humanity:
+        Impact:
+    validations:
+      required: true
+  - type: textarea
+    id: deliverables
+    attributes:
+      label: Expected deliverables and record
+      description: Identify the expected code, report, evaluation, amendment, pull request, release evidence, or Master Ledger record.
+    validations:
+      required: true
+  - type: dropdown
+    id: decision_class
+    attributes:
+      label: Proposed decision class
+      options:
+        - Routine
+        - Material
+        - Governance-critical
+        - Regulated or high-stakes
+        - Unsure — classify at the higher level
+    validations:
+      required: true
+  - type: dropdown
+    id: ai_assistance
+    attributes:
+      label: AI assistance
+      options:
+        - No material AI assistance
+        - AltmanAI Model 2.0
+        - Another AI system
+    validations:
+      required: true
+  - type: textarea
+    id: ai_details
+    attributes:
+      label: AI assistance details
+      description: Identify the system, its contribution, human verification, and known limitations.
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Confirmation
+      options:
+        - label: I distinguished verified facts, assumptions, proposals, and future intent.
+          required: true
+        - label: I removed confidential information, secrets, private data, and unsafe vulnerability details.
+          required: true
+        - label: I understand that this proposal is not authoritative until approved through the applicable governance process.
+          required: true
