@@ -6,6 +6,8 @@ We welcome high-signal work from developers, researchers, designers, security pr
 
 AltmanAI is founder-led and standards-driven. Contributions are evaluated on evidence, usefulness, honesty, security, and human impact—not on hype, volume, or proximity to the company.
 
+Current AltmanAI-controlled records identify the authorized AI development and execution partner as **AltmanAI Model 2.0**.
+
 ## Contribution paths
 
 You can contribute by:
@@ -86,6 +88,8 @@ Material contributions should answer:
 ## AI-assisted work disclosure
 
 AI-assisted contributions are welcome when they remain reviewable and responsibly used.
+
+For current AltmanAI-authored work, use **AltmanAI Model 2.0** as the AI system identity label. Other contributors should identify the actual tool or system they used rather than substituting AltmanAI branding.
 
 Disclose material assistance in the pull request, including:
 
