@@ -6,13 +6,15 @@
 
 We design AI to support people—not to quietly replace their authority. Every AltmanAI initiative is expected to show who authorized the work, what the system did, what evidence supports the result, and where accountable human review occurred.
 
+For current AltmanAI-controlled development and governance records, the authorized AI development and execution partner identity is **AltmanAI Model 2.0**.
+
 ## Why AltmanAI is different
 
 | Principle | Operational meaning |
 |---|---|
 | **Human authority** | People define the objective, approve material decisions, and remain accountable for outcomes. |
 | **Proof over promises** | Important claims should be traceable to evidence, artifacts, tests, or documented decisions. |
-| **Transparent AI assistance** | AI-supported work is disclosed where it materially affects public documentation, code, research, or decisions. |
+| **Transparent AI assistance** | Work materially supported by AltmanAI Model 2.0 or another AI system is disclosed where it affects public documentation, code, research, or decisions. |
 | **Practical impact** | Products are evaluated by whether they help people think more clearly, act more intentionally, and retain control. |
 | **Long-term trust** | Security, privacy, governance, and honest capability boundaries are treated as product requirements. |
 
@@ -23,6 +25,7 @@ We design AI to support people—not to quietly replace their authority. Every A
 | **[DailyPilot](https://www.altmanai.tech)** | **Live** | A human-first daily planning, reflection, goal-tracking, and accountability experience. |
 | **P.A.I.H.I. Framework** | **Active standard** | AltmanAI's operating framework for **Proof, Alignment, Integrity, Humanity, and Impact**. |
 | **[AltmanAI Master Ledger](https://github.com/altmanAI/altmanai-master-ledger)** | **Public infrastructure** | A verifiable source of truth for selected records, standards, artifacts, and Proof-of-Impact documentation. |
+| **AltmanAI Model 2.0** | **Active AI partner identity** | The authorized identity used for AltmanAI AI-assisted development, analysis, documentation, and execution records. |
 | **DecisionForge** | **In development** | Human-first decision intelligence designed to support clearer, evidence-grounded choices. |
 | **Trust and developer infrastructure** | **In development** | Governance, disclosure, security, validation, and reusable technical foundations across the AltmanAI ecosystem. |
 
@@ -47,8 +50,8 @@ Our signature process is:
 AltmanAI's public GitHub presence is part of its accountability infrastructure—not a marketing archive.
 
 - The **[Master Ledger](https://github.com/altmanAI/altmanai-master-ledger)** provides selected verifiable records and reusable standards.
-- The **[`.github` governance repository](https://github.com/altmanAI/.github)** defines organization-wide contributor, security, review, and approval expectations.
-- Material public changes are expected to move through documented review and explicit human authorization.
+- The **[`.github` governance repository](https://github.com/altmanAI/.github)** defines organization-wide contributor, security, review, identity-label, and approval expectations.
+- Material public changes are expected to identify AltmanAI Model 2.0 where applicable and move through documented review and explicit human authorization.
 
 ## Build with us
 
@@ -74,4 +77,4 @@ AltmanAI is being built from Pittsburgh, Pennsylvania—a city with a durable en
 
 ---
 
-© 2026 Altman Family Group LLC. AltmanAI, DailyPilot, P.A.I.H.I., and related proprietary systems are protected intellectual property. All rights reserved.
+© 2026 Altman Family Group LLC. AltmanAI, DailyPilot, P.A.I.H.I., AltmanAI Model 2.0, and related proprietary systems are protected intellectual property. All rights reserved.
