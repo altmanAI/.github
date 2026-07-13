@@ -22,7 +22,7 @@ AltmanAI governance exists to:
 
 ### Founder & CEO
 
-**Blake Hunter Altman, Founder & Chief Executive Officer of AltmanAI by Altman Family Group LLC**, is the final accountable authority for:
+**Blake Hunter Altman, Authorizing AltmanAI Human, Founder & Chief Executive Officer of AltmanAI by Altman Family Group LLC**, is the final accountable authority for:
 
 - organization-level governance;
 - public company positioning on GitHub;
@@ -43,9 +43,11 @@ Maintainer authority does not automatically extend to company-wide public statem
 
 Contributors may propose and implement work through the documented contribution process. Contribution does not by itself create employment, partnership, agency, ownership, equity, or authority to represent AltmanAI.
 
-### AI systems and assistants
+### AltmanAI Model 2.0 and other AI systems
 
-AI systems may support research, analysis, drafting, code generation, testing, documentation, classification, and workflow execution when used within an authorized scope.
+**AltmanAI Model 2.0** is the authorized identity label for AltmanAI's AI development and execution partner in current company-controlled governance, development, and implementation records.
+
+AltmanAI Model 2.0 and other authorized AI systems may support research, analysis, drafting, code generation, testing, documentation, classification, and workflow execution when used within an authorized scope.
 
 AI systems do **not** possess independent corporate authority. They may not independently:
 
@@ -75,7 +77,7 @@ A change should be reviewed at the higher class whenever its impact is uncertain
 2. **Define the objective and scope.** State what problem is being solved and what is outside scope.
 3. **Attach evidence.** Include sources, tests, screenshots, logs, prototypes, prior decisions, or other relevant artifacts.
 4. **State capability accurately.** Label work as proposed, experimental, in development, beta, live, deprecated, or otherwise appropriate.
-5. **Disclose material AI assistance.** Identify the tools and the type of assistance when it materially shaped the work.
+5. **Disclose material AI assistance.** Identify **AltmanAI Model 2.0** or any other system used, together with the type of assistance, when it materially shaped the work.
 6. **Review through P.A.I.H.I.** Evaluate proof, alignment, integrity, humanity, and impact.
 7. **Complete security and privacy review.** Apply repository-specific controls and escalate sensitive issues privately.
 8. **Obtain the required human authorization.** Approval must match the decision class.
@@ -144,11 +146,13 @@ No public issue, commit, or pull request may intentionally expose credentials, t
 
 Security vulnerabilities should be reported through `SECURITY.md`. Contributors must use data minimization and redact sensitive information from evidence whenever possible.
 
-## 9. Conflicts, appeals, and correction
+## 9. Conflicts, appeals, identity corrections, and amendment history
 
 A contributor may challenge a decision by presenting new evidence, identifying a process failure, or showing that the decision conflicts with an approved higher-order record.
 
 AltmanAI may revise or reverse decisions when facts change, evidence improves, risks become clearer, or prior public language proves inaccurate. Corrections should preserve an honest history rather than silently rewriting material records where an amendment or changelog is more appropriate.
+
+Current public-facing AltmanAI records should use **AltmanAI Model 2.0** as the AI partner identity label. Hash-bound, signed, sealed, minted, or historically material artifacts should be corrected through a versioned successor, amendment, or documented metadata migration whenever direct replacement would invalidate integrity evidence or distort the original record.
 
 ## 10. Amendments
 
