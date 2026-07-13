@@ -1,0 +1,26 @@
+# AltmanAI organization-wide default code ownership
+#
+# CODEOWNERS identifies accountable reviewers. It does not replace testing,
+# security review, legal review, or the explicit human authorization required
+# for governance-critical changes.
+
+# Default accountable owner
+* @altmanAI
+
+# Organization governance and public trust controls
+/GOVERNANCE.md @altmanAI
+/AI_SYSTEMS_POLICY.md @altmanAI
+/AI_SECURITY_STANDARD.md @altmanAI
+/REPOSITORY_STANDARD.md @altmanAI
+/SECURITY.md @altmanAI
+/CONTRIBUTING.md @altmanAI
+/CODE_OF_CONDUCT.md @altmanAI
+/SUPPORT.md @altmanAI
+/RELEASE_GOVERNANCE.md @altmanAI
+/AI_SYSTEM_CARD_TEMPLATE.md @altmanAI
+
+# Shared GitHub automation, issue forms, and contribution controls
+/.github/ @altmanAI
+
+# Public organization profile
+/profile/ @altmanAI
