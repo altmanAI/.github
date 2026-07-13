@@ -1,0 +1,140 @@
+name: AI system change or evaluation
+about: Propose a material change to an AI model, agent, prompt, tool, data flow, evaluation, or human-control boundary.
+title: "[AI SYSTEM] "
+labels:
+  - governance
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form for material AI-system work. Do not include secrets, personal data, proprietary credentials, or unremediated vulnerability details.
+
+  - type: input
+    id: system
+    attributes:
+      label: System or component
+      description: Name the affected model, agent, application, workflow, prompt, tool, API, or evaluation.
+      placeholder: DailyPilot planning agent
+    validations:
+      required: true
+
+  - type: dropdown
+    id: lifecycle
+    attributes:
+      label: Current lifecycle status
+      options:
+        - Proposed
+        - Experimental
+        - Internal testing
+        - Beta
+        - Production
+        - Deprecated
+        - Archived
+    validations:
+      required: true
+
+  - type: dropdown
+    id: change_class
+    attributes:
+      label: Change class
+      options:
+        - Routine and reversible
+        - Material capability or behavior change
+        - Security, privacy, or permission change
+        - Governance-critical change
+        - Regulated or high-stakes use
+    validations:
+      required: true
+
+  - type: textarea
+    id: objective
+    attributes:
+      label: Authorized objective
+      description: State the human-defined problem, intended user value, and explicit non-goals.
+      placeholder: Describe the bounded objective and what this work must not do.
+    validations:
+      required: true
+
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Proposed behavior or capability
+      description: Explain what changes, what remains unchanged, and how outputs or actions will differ.
+    validations:
+      required: true
+
+  - type: textarea
+    id: authority
+    attributes:
+      label: Human authority and control
+      description: Identify required approvals, confirmation points, override paths, appeals, escalation, and shutdown or rollback controls.
+    validations:
+      required: true
+
+  - type: textarea
+    id: data
+    attributes:
+      label: Data and privacy review
+      description: Identify data sources, personal or sensitive data, retention, access, consent, logging, and data-minimization controls.
+    validations:
+      required: true
+
+  - type: textarea
+    id: security
+    attributes:
+      label: Security and tool-use review
+      description: Cover permissions, credentials, external services, prompt injection, data exfiltration, unsafe tool use, supply-chain risk, and least privilege.
+    validations:
+      required: true
+
+  - type: textarea
+    id: evaluation
+    attributes:
+      label: Evaluation plan and acceptance criteria
+      description: Define reproducible tests, baselines, failure cases, thresholds, reviewers, and evidence required before release.
+    validations:
+      required: true
+
+  - type: textarea
+    id: limitations
+    attributes:
+      label: Known limitations and uncertainty
+      description: State unsupported use cases, likely failure modes, unresolved questions, and claims that must not be made.
+    validations:
+      required: true
+
+  - type: textarea
+    id: paihi
+    attributes:
+      label: P.A.I.H.I. review
+      description: Address Proof, Alignment, Integrity, Humanity, and Impact.
+      placeholder: |
+        Proof:
+        Alignment:
+        Integrity:
+        Humanity:
+        Impact:
+    validations:
+      required: true
+
+  - type: textarea
+    id: rollback
+    attributes:
+      label: Monitoring, incident response, and rollback
+      description: Explain how harmful drift, misuse, failures, or unintended impact will be detected, contained, corrected, and documented.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: attestations
+    attributes:
+      label: Submission attestations
+      options:
+        - label: I have not included secrets, credentials, personal data, or private vulnerability details.
+          required: true
+        - label: Capability and readiness claims are labeled accurately and supported by evidence.
+          required: true
+        - label: Material AI assistance will be disclosed in the implementation pull request.
+          required: true
+        - label: Governance-critical work will not merge without attributable accountable-human approval.
+          required: true
