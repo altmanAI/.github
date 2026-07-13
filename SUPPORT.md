@@ -1,35 +1,83 @@
-# Support
+# AltmanAI Support Policy
 
-## Product questions
+This document explains where to direct product questions, repository bugs, feature proposals, security reports, conduct concerns, and private matters.
 
-For questions about DailyPilot, Sentinel Elite, or other AltmanAI products, visit [www.altmanai.tech](https://www.altmanai.tech) or reach out through the site's contact page.
+## Product and company questions
 
-## Reporting a bug
+For DailyPilot, AltmanAI products, company information, and general inquiries, begin at [altmanai.tech](https://www.altmanai.tech) and use the contact route provided there.
 
-Open a GitHub issue in the relevant repository using the **Bug report** template. Include what happened, what you expected, steps to reproduce, and your environment (browser, device, product version).
+GitHub issues are not a guaranteed customer-support channel and should not be used for account-specific, billing, legal, employment, investor, partnership, or confidential matters.
 
-## Suggesting a feature
+## Repository bugs
 
-Open a GitHub issue using the **Feature request** template. Tell us the problem you're trying to solve, not just the feature you're picturing — it helps us build the right thing.
+Open an issue in the repository where the problem occurs and use the **Bug report** form when available.
 
-## What to include in a support request
+Include:
 
-- A clear, specific description of the issue or idea
-- Steps to reproduce (for bugs)
-- Screenshots or logs, if safe to share
-- What you expected vs. what happened
+- a concise description of the problem;
+- expected and observed behavior;
+- minimal reproduction steps;
+- relevant version, branch, operating system, browser, device, runtime, or dependency information;
+- safe logs, screenshots, or examples with sensitive information removed; and
+- the practical impact.
 
-## Private matters
+A public issue should contain enough information to review the problem without exposing credentials, personal data, confidential records, or unremediated vulnerability details.
 
-For anything you'd rather not put in a public issue:
+## Feature and improvement proposals
 
-- **General inquiries:** thealtmanfamilygroup@outlook.com
-- **Security or Code of Conduct concerns:** security@altmanai.tech
+Use the **Feature or improvement proposal** form in the relevant repository.
 
-## A reminder
+Explain:
 
-Never include passwords, API keys, tokens, or other private/sensitive data in a public issue, pull request, or support request. If your issue involves sensitive information, use the private contact channels above instead.
+- the human or operational problem;
+- who is affected;
+- the current workaround or limitation;
+- the smallest useful outcome;
+- evidence that the problem is real;
+- important security, privacy, accessibility, or human-impact considerations; and
+- whether AI materially assisted the proposal.
+
+Describe the need before prescribing a large implementation.
+
+## Research and governance proposals
+
+Use the designated proposal form or open a focused issue in the relevant governance, framework, documentation, or research repository.
+
+State the question, method, evidence standard, limitations, decision requested, and expected record. Drafts and proposals are not authoritative until approved through the applicable governance process.
+
+## Security and sensitive reports
+
+Report vulnerabilities privately to [security@altmanai.tech](mailto:security@altmanai.tech). Do not open a public issue for an unremediated vulnerability.
+
+Use the same private address for Code of Conduct reports or other sensitive GitHub-community matters. Include `[CoC]` in the subject for conduct reports.
+
+Review [`SECURITY.md`](SECURITY.md) before submitting security findings.
+
+## Never publish
+
+Do not place the following in a public issue, pull request, discussion, commit, screenshot, or log:
+
+- passwords, API keys, tokens, private keys, or credentials;
+- customer, employee, applicant, or private-user information;
+- private financial, legal, health, identity, or account data;
+- confidential contracts, internal records, proprietary prompts, or restricted source material;
+- production database contents; or
+- exploit details that create unnecessary risk before remediation.
+
+## Response expectations
+
+AltmanAI will review well-scoped public issues and private reports in good faith, subject to repository activity, severity, available resources, and whether the request is within scope.
+
+Opening an issue or sending a message does not guarantee a response deadline, implementation, compensation, public credit, employment, partnership, investment, equity, or authority to represent AltmanAI.
+
+## Useful links
+
+- **Website:** [altmanai.tech](https://www.altmanai.tech)
+- **Organization profile:** [github.com/altmanAI](https://github.com/altmanAI)
+- **Contribution standard:** [`CONTRIBUTING.md`](CONTRIBUTING.md)
+- **Security policy:** [`SECURITY.md`](SECURITY.md)
+- **Governance:** [`GOVERNANCE.md`](GOVERNANCE.md)
 
 ---
 
-Website: [www.altmanai.tech](https://www.altmanai.tech)
+© 2026 Altman Family Group LLC. All rights reserved.
