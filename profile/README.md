@@ -2,39 +2,76 @@
 
 ### Humanity leads. Intelligence follows.
 
-AltmanAI, by Altman Family Group LLC, is a human-first AI research and development company. We build practical AI systems, decision-support tools, and productivity software designed to make people more capable — not to replace their judgment.
+**AltmanAI**, by Altman Family Group LLC, is a Pittsburgh-rooted, human-first artificial intelligence company building practical systems that strengthen human judgment, agency, and execution.
 
-## What we build
+We design AI to support people—not to quietly replace their authority. Every AltmanAI initiative is expected to show who authorized the work, what the system did, what evidence supports the result, and where accountable human review occurred.
 
-- **DailyPilot** — a human-first productivity co-pilot for daily planning, reflection, goal tracking, and intentional action, grounded in the P.A.I.H.I. framework. Live at [www.altmanai.tech](https://www.altmanai.tech).
-- **Sentinel Elite** — a security and access-vault platform in the AltmanAI product ecosystem.
-- **P.A.I.H.I. Framework** — our proprietary standard (Proof, Alignment, Integrity, Humanity, Impact) for grounding AI-assisted decisions and insights in verifiable evidence.
-- **Proof-of-Impact Ledger** — an internal framework for turning daily actions into an auditable record of real progress.
-- Additional research-backed concepts in active development across the AltmanAI ecosystem, including DecisionForge, ReleaseShield, AltmanCore, and related infrastructure.
+## Why AltmanAI is different
 
-## R&D principles
+| Principle | Operational meaning |
+|---|---|
+| **Human authority** | People define the objective, approve material decisions, and remain accountable for outcomes. |
+| **Proof over promises** | Important claims should be traceable to evidence, artifacts, tests, or documented decisions. |
+| **Transparent AI assistance** | AI-supported work is disclosed where it materially affects public documentation, code, research, or decisions. |
+| **Practical impact** | Products are evaluated by whether they help people think more clearly, act more intentionally, and retain control. |
+| **Long-term trust** | Security, privacy, governance, and honest capability boundaries are treated as product requirements. |
 
-- **Human authorization first, AI execution second.** AI suggests; people decide.
-- **Proof over assumption.** Claims and insights are grounded in evidence, not projection.
-- **Transparency by default.** Our development process, documentation, and decision trail are built to be reviewable.
-- **Practical usefulness.** We build software people actually use to think more clearly and act with more intention.
+## What we are building
 
-## Responsible AI statement
+| Initiative | Status | Purpose |
+|---|---|---|
+| **[DailyPilot](https://www.altmanai.tech)** | **Live** | A human-first daily planning, reflection, goal-tracking, and accountability experience. |
+| **P.A.I.H.I. Framework** | **Active standard** | AltmanAI's operating framework for **Proof, Alignment, Integrity, Humanity, and Impact**. |
+| **[AltmanAI Master Ledger](https://github.com/altmanAI/altmanai-master-ledger)** | **Public infrastructure** | A verifiable source of truth for selected records, standards, artifacts, and Proof-of-Impact documentation. |
+| **DecisionForge** | **In development** | Human-first decision intelligence designed to support clearer, evidence-grounded choices. |
+| **Trust and developer infrastructure** | **In development** | Governance, disclosure, security, validation, and reusable technical foundations across the AltmanAI ecosystem. |
 
-We commit to building AI that expands human agency rather than substituting for it. Every feature is measured against one question: does this make the person using it more capable, or less? Our products are designed with human control, data ownership, and clear limitations stated up front — never oversold as more than they are.
+Product status is stated deliberately. Experimental, proposed, and in-development work is not presented as production-ready.
 
-## A note from the founder
+## The P.A.I.H.I. operating standard
 
-> "I started AltmanAI because I believe AI should make people more human — not less. Our products are built to return agency, clarity, and intention to the person using them. Humanity leads. Intelligence follows."
+AltmanAI evaluates meaningful work through five lenses:
+
+- **Proof** — What evidence supports the claim or outcome?
+- **Alignment** — Does the work match the authorized objective and stated mission?
+- **Integrity** — Are limitations, assistance, risks, and conflicts represented honestly?
+- **Humanity** — Does the system protect human agency, dignity, privacy, and control?
+- **Impact** — Did the work produce a useful, measurable, or reviewable result?
+
+Our signature process is:
+
+> **Human authorization → AI execution → Proof-of-Impact validation**
+
+## Proof, not promises
+
+AltmanAI's public GitHub presence is part of its accountability infrastructure—not a marketing archive.
+
+- The **[Master Ledger](https://github.com/altmanAI/altmanai-master-ledger)** provides selected verifiable records and reusable standards.
+- The **[`.github` governance repository](https://github.com/altmanAI/.github)** defines organization-wide contributor, security, review, and approval expectations.
+- Material public changes are expected to move through documented review and explicit human authorization.
+
+## Build with us
+
+We welcome thoughtful creators, developers, researchers, designers, security practitioners, and operators who believe advanced AI should increase human capability without erasing human responsibility.
+
+The best first step is to review our **[contribution standards](https://github.com/altmanAI/.github/blob/main/CONTRIBUTING.md)** and open a focused issue with a clear problem, evidence, proposed value, and realistic scope. Repository availability and licensing vary across the ecosystem; public visibility does not automatically mean a project is open source.
+
+## Pittsburgh, built for the long term
+
+AltmanAI is being built from Pittsburgh, Pennsylvania—a city with a durable engineering, research, healthcare, robotics, and industrial execution culture. We intend to earn trust through disciplined work, credible documentation, useful products, and results that remain understandable after the hype cycle moves on.
+
+## Founder accountability
+
+> "AI should make people more capable, not less accountable. AltmanAI is being built so that human authority, transparent assistance, and verifiable impact remain visible in the system—not added later as marketing language."
 >
-> — Blake Hunter Altman, Founder & CEO, Pittsburgh, Pennsylvania
+> — **Blake Hunter Altman**, Founder & CEO
 
-## Learn more
+## Connect
 
-- Website: [www.altmanai.tech](https://www.altmanai.tech)
-- Governance and contributor standards: see this organization's [`.github`](https://github.com/altmanAI/.github) repository
-- Trust and security practices: [Trust Center](https://www.altmanai.tech) (linked from the site navigation)
+- **Website:** [altmanai.tech](https://www.altmanai.tech)
+- **Governance and standards:** [github.com/altmanAI/.github](https://github.com/altmanAI/.github)
+- **Master Ledger:** [github.com/altmanAI/altmanai-master-ledger](https://github.com/altmanAI/altmanai-master-ledger)
 
 ---
 
-© 2026 Altman Family Group LLC. AltmanAI and DailyPilot are proprietary digital systems. All rights reserved.
+© 2026 Altman Family Group LLC. AltmanAI, DailyPilot, P.A.I.H.I., and related proprietary systems are protected intellectual property. All rights reserved.
