@@ -1,43 +1,93 @@
-## Summary
+# Pull Request
 
-<!-- What does this change do? -->
+## Objective
 
-## Reason for change
+<!-- What authorized problem does this PR solve? Keep the objective specific and bounded. -->
 
-<!-- Why is this change needed? -->
+## Summary of changes
 
-## Related issue
+<!-- What changed? List the material files, behaviors, interfaces, policies, or records affected. -->
 
-<!-- Link the related issue, e.g. Closes #12 -->
+## Related issue or decision
 
-## Files changed
+<!-- Link the issue, approved objective, prior decision, release, or Master Ledger record. Use "None" only for genuinely routine work. -->
 
-<!-- Brief list of what was touched and why -->
+## Scope and non-goals
 
-## Testing / review completed
+**In scope**
 
-<!-- What did you check to confirm this works as intended? -->
+-
 
-## Security impact
+**Out of scope**
 
-<!-- Does this change touch auth, data handling, or anything security-relevant? If none, say "None." -->
+-
 
-## Documentation impact
+## Evidence and validation
 
-<!-- Does this require updates elsewhere (README, product docs, Trust Center)? -->
+<!-- Include tests, checks, screenshots, logs, sources, demonstrations, manual review steps, or other reproducible evidence. -->
 
-## AI-assisted work
+- [ ] Automated tests or checks completed where applicable
+- [ ] Manual review completed where applicable
+- [ ] Public claims are supported and status is labeled accurately
+- [ ] Links, examples, and documentation were reviewed
 
-<!-- Was this PR drafted or substantially assisted by an AI tool? If so, name it (e.g. AltmanAI SuperAgent 1.0) and note what it did. If none, say "None." -->
+**Validation details:**
 
-## Checklist
+## Risk review
 
-- [ ] Mirror Mode respected — no non-canonical claims added
-- [ ] No secrets, credentials, or private data included
-- [ ] No unverified partnerships, certifications, or launch claims
-- [ ] Tests or rationale included where applicable
-- [ ] Requires Blake Altman approval before merge
+### Security and privacy
 
----
+<!-- Does this affect authentication, authorization, secrets, dependencies, personal data, logging, external services, production systems, or tool permissions? -->
 
-**Blake Altman approval required before merge: All Clear for Impact?**
+### Human impact
+
+<!-- Could this affect agency, accessibility, dignity, safety, privacy, recourse, dependency, or consequential decisions? -->
+
+### Operational and compatibility risk
+
+<!-- Note migrations, breaking changes, costs, outages, rollback concerns, or downstream dependencies. -->
+
+### Rollback or correction plan
+
+<!-- How can this change be reverted, disabled, corrected, or contained? -->
+
+## AI-assisted work disclosure
+
+- **AI system used:** <!-- AltmanAI Model 2.0, another named system, or None -->
+- **Assistance type:** <!-- Research, drafting, code, tests, review, classification, documentation, other -->
+- **Human verification completed:**
+- **Known limitations or areas needing deeper review:**
+
+The human contributor remains responsible for understanding the submission and verifying material claims, code, tests, licenses, privacy, and security.
+
+## P.A.I.H.I. review
+
+- **Proof:** What supports this change?
+- **Alignment:** Why does it belong in this repository and the authorized objective?
+- **Integrity:** What limitations, uncertainty, conflicts, or unresolved risks remain?
+- **Humanity:** How does it preserve human control, dignity, privacy, accessibility, and safety?
+- **Impact:** What useful outcome should result, and how will it be observed?
+
+## Decision class
+
+- [ ] Routine
+- [ ] Material
+- [ ] Governance-critical
+- [ ] Regulated or high-stakes
+
+## Final checklist
+
+- [ ] The change is focused and unrelated work is excluded
+- [ ] No secrets, credentials, private data, or unauthorized proprietary material are included
+- [ ] No unverified partnerships, certifications, funding, adoption, performance, or launch claims are included
+- [ ] Repository licensing and third-party obligations were respected
+- [ ] Documentation and changelog/release notes were updated where needed
+- [ ] AI assistance was disclosed accurately
+- [ ] Security, privacy, accessibility, and human-impact risks were considered
+- [ ] The required accountable-human approval has been obtained or requested
+
+## Authorization record
+
+<!-- Governance-critical changes require explicit Founder approval before merge. Paste or link the attributable approval record. -->
+
+**All Clear for Impact:** <!-- Approved / Not required / Pending -->

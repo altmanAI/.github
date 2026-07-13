@@ -1,8 +1,11 @@
 blank_issues_enabled: false
 contact_links:
-  - name: Product Support
+  - name: Product and company support
     url: https://www.altmanai.tech
-    about: For product questions about DailyPilot, Sentinel Elite, or other AltmanAI products.
-  - name: Security or Code of Conduct concern
+    about: Use the AltmanAI website for product, account-specific, company, partnership, or general inquiries.
+  - name: Private security report
     url: mailto:security@altmanai.tech
-    about: For anything sensitive — do not open a public issue for security reports.
+    about: Report vulnerabilities privately. Do not disclose unremediated security issues in a public GitHub issue.
+  - name: Code of Conduct concern
+    url: mailto:security@altmanai.tech?subject=%5BCoC%5D%20AltmanAI%20GitHub%20report
+    about: Report sensitive community-conduct concerns privately with [CoC] in the subject.

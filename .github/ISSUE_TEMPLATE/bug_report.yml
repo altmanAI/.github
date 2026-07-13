@@ -1,0 +1,87 @@
+name: Bug report
+description: Report a reproducible problem in an AltmanAI repository or public component.
+title: "[Bug]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping improve AltmanAI. Do not include secrets, personal data, confidential records, or unremediated vulnerability details. Report security issues privately to security@altmanai.tech.
+  - type: input
+    id: repository_component
+    attributes:
+      label: Repository or component
+      description: Identify the repository, file, module, product surface, API, model, agent, or workflow affected.
+      placeholder: e.g. DailyPilot-Engine scoring.py
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: Describe what happened and why it appears incorrect.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: Describe the result you expected.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Provide the smallest safe sequence of steps, input, example, or command that reproduces the issue.
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Include branch, commit, release, runtime, operating system, browser, device, dependency versions, or other relevant context.
+      placeholder: |
+        Commit or version:
+        Runtime / OS:
+        Browser / device:
+        Other dependencies:
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Add safe logs, screenshots, stack traces, test output, or links. Redact sensitive information.
+  - type: textarea
+    id: impact
+    attributes:
+      label: Practical impact
+      description: Who or what is affected, how often, and how severe is the problem?
+    validations:
+      required: true
+  - type: dropdown
+    id: ai_assistance
+    attributes:
+      label: AI assistance
+      description: Did an AI system materially assist this report or reproduction?
+      options:
+        - No material AI assistance
+        - AltmanAI Model 2.0
+        - Another AI system
+    validations:
+      required: true
+  - type: textarea
+    id: ai_details
+    attributes:
+      label: AI assistance details
+      description: If applicable, name the system, what it contributed, and what you personally verified.
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Confirmation
+      options:
+        - label: I searched existing issues and pull requests for duplicates.
+          required: true
+        - label: I removed secrets, credentials, private data, and confidential information.
+          required: true
+        - label: This is not an unremediated security vulnerability requiring private disclosure.
+          required: true
