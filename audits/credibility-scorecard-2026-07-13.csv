@@ -1,0 +1,15 @@
+repository,positioning,archived,governance_20,proof_25,paihi_25,ai_disclosure_15,founder_trail_15,total_100,rating,primary_gap
+.github,Active governance layer,false,20,16,20,15,15,86,Strong,Approval rules are not yet enforced automatically
+canon-charter-v1,Frozen canonical artifact,false,18,23,21,5,15,82,Strong,No root PROOF.md and legacy AI label remains in a minted record
+human-first-ai,Working reference implementation,false,10,23,23,8,15,79,Substantial,Material PR omitted explicit AI-system identity and no root PROOF.md
+AltmanAI-Impact-Explorer,Early full-stack implementation,false,10,19,17,15,15,76,Substantial,Dependency and deployment evidence are not fully indexed
+altmanai-sdk,Initial public foundation,false,10,21,20,5,7,63,Developing,Production adoption and cross-language parity are not independently demonstrated
+altmanai-master-ledger,Active proof layer,false,10,17,17,8,10,62,Developing,Evidence is partly self-attested and lacks one claim-to-artifact index
+DailyPilot-Engine,Working reference implementation,false,10,21,19,5,7,62,Developing,CI coverage privacy and accessibility evidence are not indexed
+altmanai-masterplan,Active execution map,false,10,14,18,9,10,61,Developing,No repo-specific governance proof or decision log verified
+altmanai-alt-seal,Governance and verification asset,false,10,18,18,5,6,57,Developing,Internally defined trust standard lacks independent validation and decision log
+releaseshield-by-altmanai,v0.1 product development,false,10,12,18,5,5,50,Developing,Feature descriptions precede demonstrated working CLI and Action evidence
+docs,Active documentation,false,10,10,15,5,5,45,Foundational,Published-site parity accessibility and product-feature accuracy are not evidenced
+paihi-framework,Active development,false,10,8,17,5,5,45,Foundational,Organization-wide enforcement claims exceed currently demonstrated controls
+altmanai-public-hub,Active public entry point,false,10,8,15,5,5,43,Foundational,Product and impact claims are weakly linked to code tests and measurable outcomes
+PAIHI-Portables,Archived and consolidated,true,8,15,12,0,5,40,Archived,Historical repository excluded from active compliance denominator
