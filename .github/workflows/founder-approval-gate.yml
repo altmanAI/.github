@@ -1,8 +1,8 @@
 # ALTMANAI | ALTMAN FAMILY GROUP, LLC
 # Humanity leads. Intelligence follows. Power serves. Trust governs.
 # THIA: Human Authorization -> AI Execution -> Proof-of-Impact Validation.
-# v2.0 proposed: preserve legacy hard-stop until the new commit status is required.
-# FOUNDER_APPROVER_ID: numeric ID of a human-only GitHub account (no automation access).
+# v2.1 proposed: manual recheck and verified founder identity; fail closed by default.
+# FOUNDER_APPROVER_ID: optional consistency check against the verified public GitHub account ID.
 # FOUNDER_PENDING_MODE: leave unset until the founder verifies the required status rule.
 # Never run or check out PR-controlled code with this privileged workflow.
 name: Founder Approval Gate
@@ -12,6 +12,12 @@ on:
     types: [opened, reopened, synchronize, edited, ready_for_review, converted_to_draft]
   issue_comment:
     types: [created, edited, deleted]
+  workflow_dispatch:
+    inputs:
+      pull_request_number:
+        description: 'Open pull request number to recheck (no approval is issued)'
+        required: true
+        type: string
 
 permissions:
   contents: read
@@ -20,15 +26,16 @@ permissions:
   statuses: write
 
 concurrency:
-  group: founder-approval-${{ github.event.pull_request.number || github.event.issue.number }}
+  group: founder-approval-${{ github.event.pull_request.number || github.event.issue.number || inputs.pull_request_number }}
   cancel-in-progress: true
 
 jobs:
   founder-approval:
     if: >-
       github.event_name == 'pull_request_target' ||
+      (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main') ||
       (github.event_name == 'issue_comment' && github.event.issue.pull_request &&
-       github.event.comment.user.type != 'Bot')
+       github.event.comment.user.id == 130725871)
     runs-on: ubuntu-latest
     timeout-minutes: 5
     env:
@@ -56,8 +63,10 @@ jobs:
             
             async function runGate({github,context,core}) {
               const {owner,repo}=context.repo;
-              const pull_number=context.payload.pull_request?.number ?? context.payload.issue?.number;
-              if (!Number.isInteger(pull_number)) throw new Error('Missing pull request number');
+              const requested=context.payload.inputs?.pull_request_number;
+              if (requested !== undefined && !/^[1-9][0-9]*$/.test(requested)) throw new Error('Enter a positive pull request number');
+              const pull_number=context.payload.pull_request?.number ?? context.payload.issue?.number ?? Number(requested);
+              if (!Number.isSafeInteger(pull_number) || pull_number < 1) throw new Error('Missing or invalid pull request number');
               const statusContext='AltmanAI / Founder authorization';
               const {data:pull}=await github.rest.pulls.get({owner,repo,pull_number});
               if (pull.state!=='open') {core.notice('Pull request is closed.');return;}
@@ -74,14 +83,26 @@ jobs:
                 const files=await github.paginate(github.rest.pulls.listFiles,{owner,repo,pull_number,per_page:100});
                 const governed=files.some(f=>isGoverned(f.filename)||isGoverned(f.previous_filename));
                 const comments=governed?await github.paginate(github.rest.issues.listComments,{owner,repo,issue_number:pull_number,per_page:100}):[];
-                const result=decide({files,changedFiles:pull.changed_files,comments,head,founderId:process.env.FOUNDER_APPROVER_ID || ''});
+                // Public account ID verified against GitHub repository ownership; not a credential.
+                const verifiedFounderId='130725871';
+                const configuredFounderId=process.env.FOUNDER_APPROVER_ID || verifiedFounderId;
+                if(configuredFounderId!==verifiedFounderId) throw new Error('Founder account configuration does not match the designated account');
+                const result=decide({files,changedFiles:pull.changed_files,comments,head,founderId:verifiedFounderId});
                 const {data:latest}=await github.rest.pulls.get({owner,repo,pull_number});
                 if(latest.state!=='open'||latest.head.sha!==head||latest.base.sha!==pull.base.sha){core.notice('Pull request changed while checking; newer run must validate it.');return;}
                 await setStatus(result.state,result.description);
                 await core.summary.addHeading('Founder authorization').addRaw(result.description+'\n\n').addRaw('Commit: '+head+'\n\n').addRaw(result.approvalUrl?'Approval record: '+result.approvalUrl+'\n':'').write();
                 if(result.state==='error') core.setFailed(result.description);
-                else if(result.state==='pending' && (!mainTarget || process.env.FOUNDER_PENDING_MODE!=='required-status')) core.setFailed('Founder authorization pending (legacy fail-closed mode).');
-                else core.notice(result.description);
+                else if(result.state==='pending') {
+                  let requiredStatusVerified=false;
+                  if(mainTarget && process.env.FOUNDER_PENDING_MODE==='required-status') {
+                    const {data:branch}=await github.rest.repos.getBranch({owner,repo,branch:'main'});
+                    const required=branch.protection?.required_status_checks;
+                    requiredStatusVerified=branch.protected===true && required?.enforcement_level!=='off' && (required?.checks?.some(check=>check.context===statusContext) || required?.contexts?.includes(statusContext))===true;
+                  }
+                  if(!requiredStatusVerified) core.setFailed('Founder authorization pending; required merge protection is not verified.');
+                  else core.notice(result.description);
+                } else core.notice(result.description);
               } catch(error) {
                 try {await setStatus('error','Authorization check could not complete');} catch {}
                 throw error;
