@@ -1,5 +1,7 @@
 # AltmanAI GitHub Account Audit
 
+> **Humanity leads. Intelligence follows. Power serves. Trust governs.**
+
 **Date:** July 5, 2026
 **Scope:** All 27 public repositories under github.com/altmanAI
 **Author:** AltmanAI SuperAgent 1.0 (agent-executed audit, human-reviewed)
