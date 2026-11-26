@@ -1,157 +1,86 @@
+# ALTMANAI | ALTMAN FAMILY GROUP, LLC
+# Humanity leads. Intelligence follows. Power serves. Trust governs.
+# THIA: Human Authorization -> AI Execution -> Proof-of-Impact Validation.
+# v2.0 proposed: preserve legacy hard-stop until the new commit status is required.
+# FOUNDER_APPROVER_ID: numeric ID of a human-only GitHub account (no automation access).
+# FOUNDER_PENDING_MODE: leave unset until the founder verifies the required status rule.
+# Never run or check out PR-controlled code with this privileged workflow.
 name: Founder Approval Gate
 
 on:
   pull_request_target:
-    types: [opened, reopened, synchronize, edited, labeled, unlabeled]
+    types: [opened, reopened, synchronize, edited, ready_for_review, converted_to_draft]
   issue_comment:
     types: [created, edited, deleted]
 
 permissions:
   contents: read
-  issues: write
-  pull-requests: write
+  issues: read
+  pull-requests: read
+  statuses: write
+
+concurrency:
+  group: founder-approval-${{ github.event.pull_request.number || github.event.issue.number }}
+  cancel-in-progress: true
 
 jobs:
   founder-approval:
     if: >-
       github.event_name == 'pull_request_target' ||
-      (github.event_name == 'issue_comment' && github.event.issue.pull_request)
+      (github.event_name == 'issue_comment' && github.event.issue.pull_request &&
+       github.event.comment.user.type != 'Bot')
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     env:
-      FOUNDER_APPROVER_LOGIN: ${{ vars.FOUNDER_APPROVER_LOGIN }}
-
+      FOUNDER_APPROVER_ID: ${{ vars.FOUNDER_APPROVER_ID }}
+      FOUNDER_PENDING_MODE: ${{ vars.FOUNDER_PENDING_MODE }}
     steps:
-      - name: Check governed paths and founder authorization
+      - name: Evaluate founder authorization for current commit
         uses: actions/github-script@v7
         with:
           script: |
-            const owner = context.repo.owner;
-            const repo = context.repo.repo;
-            const pull_number = context.issue.number;
-            const founderLogin = process.env.FOUNDER_APPROVER_LOGIN || 'altmanAI';
-            const approvalPhrase = 'All Clear for Impact';
-            const marker = '<!-- altmanai-founder-approval-gate -->';
-
-            const { data: pull } = await github.rest.pulls.get({
-              owner,
-              repo,
-              pull_number,
-            });
-
-            const files = await github.paginate(
-              github.rest.pulls.listFiles,
-              { owner, repo, pull_number, per_page: 100 },
-            );
-
-            const governedRootFiles = new Set([
-              'GOVERNANCE.md',
-              'SECURITY.md',
-              'CONTRIBUTING.md',
-              'CODE_OF_CONDUCT.md',
-              'AI_SYSTEMS_POLICY.md',
-              'VERSION',
-              'CHANGELOG.md',
-              'package.json',
-              'pyproject.toml',
-              'Cargo.toml',
-              'go.mod',
-            ]);
-
-            const requiresFounderApproval = files.some(({ filename }) => {
-              return (
-                governedRootFiles.has(filename) ||
-                filename.startsWith('docs/') ||
-                filename.startsWith('profile/') ||
-                filename.startsWith('.github/workflows/') ||
-                filename.startsWith('.github/ISSUE_TEMPLATE/') ||
-                filename === '.github/pull_request_template.md' ||
-                /(^|\/)(release|version)(\.|\/|$)/i.test(filename)
-              );
-            });
-
-            if (!requiresFounderApproval) {
-              core.notice('No governed paths detected. Founder approval gate is not required.');
-              return;
+            function isGoverned(path) {
+              if (typeof path !== 'string') return false;
+              const roots = new Set(['GOVERNANCE.md','SECURITY.md','CONTRIBUTING.md','CODE_OF_CONDUCT.md','AI_SYSTEMS_POLICY.md','GITHUB_AUDIT.md','VERSION','CHANGELOG.md','package.json','pyproject.toml','Cargo.toml','go.mod']);
+              return roots.has(path) || ['docs/','profile/','.github/workflows/','.github/ISSUE_TEMPLATE/'].some(prefix=>path.startsWith(prefix)) || path === '.github/pull_request_template.md' || /(^|\/)(release|version)(\.|\/|$)/i.test(path);
             }
-
-            const comments = await github.paginate(
-              github.rest.issues.listComments,
-              { owner, repo, issue_number: pull_number, per_page: 100 },
-            );
-
-            const exactPhrasePattern = /(?:^|\n)\s*All Clear for Impact\s*(?:\n|$)/;
-            const approvalComment = comments.find((comment) => {
-              return (
-                comment.user?.login === founderLogin &&
-                exactPhrasePattern.test(comment.body || '')
-              );
-            });
-
-            const changedGovernedFiles = files
-              .map(({ filename }) => filename)
-              .filter((filename) => {
-                return (
-                  governedRootFiles.has(filename) ||
-                  filename.startsWith('docs/') ||
-                  filename.startsWith('profile/') ||
-                  filename.startsWith('.github/workflows/') ||
-                  filename.startsWith('.github/ISSUE_TEMPLATE/') ||
-                  filename === '.github/pull_request_template.md' ||
-                  /(^|\/)(release|version)(\.|\/|$)/i.test(filename)
-                );
-              });
-
-            const status = approvalComment ? 'APPROVED' : 'PENDING';
-            const checklist = [
-              marker,
-              '## Founder approval gate',
-              '',
-              `**Status:** ${status}`,
-              `**Required approver:** @${founderLogin}`,
-              '',
-              'This pull request changes governance-sensitive, documentation, workflow, profile, release, or version-controlled paths.',
-              '',
-              '- [ ] Evidence and validation are linked in the pull request',
-              '- [ ] AI assistance is disclosed',
-              '- [ ] P.A.I.H.I. review is complete',
-              '- [ ] Rollback or correction plan is documented',
-              `- [${approvalComment ? 'x' : ' '}] Founder posted the exact standalone phrase: **${approvalPhrase}**`,
-              '',
-              '<details><summary>Governed files detected</summary>',
-              '',
-              ...changedGovernedFiles.map((filename) => `- \`${filename}\``),
-              '',
-              '</details>',
-              '',
-              approvalComment
-                ? `Approval record: ${approvalComment.html_url}`
-                : 'Approval must be a visible pull-request comment from the configured founder account. The workflow cannot create or infer approval.',
-            ].join('\n');
-
-            const priorGateComment = comments.find(
-              (comment) => comment.user?.type === 'Bot' && comment.body?.includes(marker),
-            );
-
-            if (priorGateComment) {
-              await github.rest.issues.updateComment({
-                owner,
-                repo,
-                comment_id: priorGateComment.id,
-                body: checklist,
-              });
-            } else {
-              await github.rest.issues.createComment({
-                owner,
-                repo,
-                issue_number: pull_number,
-                body: checklist,
-              });
+            
+            function decide({files, changedFiles, comments, head, founderId}) {
+              if (!/^[a-f0-9]{40}$/i.test(head) || !Number.isInteger(changedFiles) || changedFiles < 0 || files.length !== changedFiles) return {state:'error',description:'Incomplete or invalid pull request metadata'};
+              const governed = files.some(f=>isGoverned(f.filename)||isGoverned(f.previous_filename));
+              if (!governed) return {state:'success',description:'No governed paths changed'};
+              if (!/^[1-9][0-9]*$/.test(founderId)) return {state:'error',description:'Configure human-only founder account ID'};
+              const approval = comments.find(c=>c.user?.type==='User' && String(c.user.id)===founderId && !c.performed_via_github_app && typeof c.body==='string' && c.body.replace(/\r\n/g,'\n').trim()===['All Clear for Impact','Commit: '+head].join('\n'));
+              return approval ? {state:'success',description:'Founder approval verified for current commit',approvalUrl:approval.html_url} : {state:'pending',description:'Awaiting founder approval for current commit'};
             }
-
-            if (!approvalComment) {
-              core.setFailed(
-                `Founder approval required. @${founderLogin} must post the exact standalone phrase: ${approvalPhrase}`,
-              );
-            } else {
-              core.info(`Founder approval verified at ${approvalComment.html_url}`);
+            
+            async function runGate({github,context,core}) {
+              const {owner,repo}=context.repo;
+              const pull_number=context.payload.pull_request?.number ?? context.payload.issue?.number;
+              if (!Number.isInteger(pull_number)) throw new Error('Missing pull request number');
+              const statusContext='AltmanAI / Founder authorization';
+              const {data:pull}=await github.rest.pulls.get({owner,repo,pull_number});
+              if (pull.state!=='open') {core.notice('Pull request is closed.');return;}
+              const head=pull.head.sha;
+              if (!/^[a-f0-9]{40}$/i.test(head)) throw new Error('Invalid pull request head SHA');
+              const setStatus=(state,description)=>github.rest.repos.createCommitStatus({owner,repo,sha:head,state,context:statusContext,description,target_url:pull.html_url});
+              await setStatus('pending','Checking founder authorization');
+              try {
+                const files=await github.paginate(github.rest.pulls.listFiles,{owner,repo,pull_number,per_page:100});
+                const governed=files.some(f=>isGoverned(f.filename)||isGoverned(f.previous_filename));
+                const comments=governed?await github.paginate(github.rest.issues.listComments,{owner,repo,issue_number:pull_number,per_page:100}):[];
+                const result=decide({files,changedFiles:pull.changed_files,comments,head,founderId:process.env.FOUNDER_APPROVER_ID || ''});
+                const {data:latest}=await github.rest.pulls.get({owner,repo,pull_number});
+                if(latest.state!=='open'||latest.head.sha!==head||latest.base.sha!==pull.base.sha){core.notice('Pull request changed while checking; newer run must validate it.');return;}
+                await setStatus(result.state,result.description);
+                await core.summary.addHeading('Founder authorization').addRaw(result.description+'\n\n').addRaw('Commit: '+head+'\n\n').addRaw(result.approvalUrl?'Approval record: '+result.approvalUrl+'\n':'').write();
+                if(result.state==='error') core.setFailed(result.description);
+                else if(result.state==='pending' && process.env.FOUNDER_PENDING_MODE!=='required-status') core.setFailed('Founder authorization pending (legacy fail-closed mode).');
+                else core.notice(result.description);
+              } catch(error) {
+                try {await setStatus('error','Authorization check could not complete');} catch {}
+                throw error;
+              }
             }
+            
+            await runGate({github,context,core});
